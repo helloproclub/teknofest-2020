@@ -1,0 +1,137 @@
+
+
+.home-container {
+    display: flex;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)), url(./images/hero-img.png);
+    background-size: cover; 
+    min-height: 100vh;
+}
+
+.hero-container {
+    flex: 1.2;
+    height: 100%;
+}
+
+.form-container {
+    flex: 1;
+    color: white;
+    background-color: rgb(51, 50, 50); 
+}
+
+
+.hero-overlay {    
+    color: white;
+    display: flex;        
+    align-items: center;
+    padding: 20px 35px;           
+}
+
+
+/* .hero-title p {
+    font-weight: bold;
+    font-size: 70px;
+    width: 80%;
+} */
+
+.create-user-container {
+    padding: 2em 5em;
+}
+
+.create-user-container h1{
+    font-family: 'Inconsolata', monospace ;
+}
+
+.component-regis {
+    display: flex;
+    border-radius: 10px;
+    width: 70%;    
+    border: 2px dashed white; 
+}
+
+.regis-card-1,.regis-card-2 {
+    padding: 60px;    
+    flex: 1;
+}
+.regis-card-1 p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+}
+
+.regis-card-2 p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;      
+}
+
+.regis-card-1 label,.regis-card-2 label {    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.regis-card-1 {
+    background-color: #191919;
+}
+.regis-card-2 {
+    background-color: #333333;
+}
+
+.input-border {
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: rgba(247, 249, 252, 0.4);
+    color: white;
+    width: 100%;
+    font-size: 15px; 
+}
+
+.or-line {
+    display: grid;
+    grid-template-columns: 2fr min-content 2fr;
+    align-items: center;
+}
+.or-line span:nth-child(2) {
+    font-size: 20px;
+}
+
+.btn-regis {
+    font-family: 'Open Sans', sans-serif;
+    padding: 13px 24px !important;
+    font-weight: bold !important;
+    background-color: #FFFFFF !important;
+    color: #2E3A59 !important;
+    border: 0px;
+}
+
+@media(max-width: 1440px) {
+    .create-user-container {
+        padding: 2em 4em;
+    }
+    .component-regis {        
+        width: 97%;        
+    }
+}
+
+@media(max-width: 768px) {    
+    .component-regis {        
+        flex-direction: column;    
+    }
+}
+@media(max-width: 425px) {    
+    .create-user-container {
+        padding: 2em 3em;
+    }
+    .create-user-container img {
+        width: 70%;
+    }
+    .create-user-container h1 {
+        font-size: 30px;
+    }
+    .regis-card-1, .regis-card-2 {
+        padding: 30px;        
+    }
+}
