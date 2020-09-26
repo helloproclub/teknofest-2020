@@ -135,3 +135,184 @@
         padding: 30px;        
     }
 }
+
+/* Login Component */
+
+.login-user-container {
+    padding: 2em 5em;
+    color: white;
+}
+
+
+.component-login {
+    display: flex;    
+    width: 50%;    
+    border: 2px dashed #E7E7E7;
+    box-sizing: border-box;
+    border-radius: 12px; 
+}
+
+.form-login {
+    padding: 40px 70px 20px;    
+    flex: 1;
+}
+.form-login .form-title {
+    font-family: 'Inconsolata', monospace ;
+    font-size: 32px;    
+    font-weight: 700;    
+    text-align: center;
+}
+
+.form-login label {    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-login {
+    background-color: #141414;
+}
+
+.input-text-login {
+    font-family: 'Open Sans', sans-serif !important;
+    height: calc(1.5em + 1rem + 2px) !important;
+    border: 1px solid white !important;
+    border-right-width: 0px !important;
+    padding: 10px 0px 10px 16px !important;
+    border-radius: 4px 0px 0px 4px !important;
+    background-color: rgba(247, 249, 252, 0.4) !important;
+    color: white !important;    
+    font-size: 15px !important; 
+}
+.input-text-login:focus {
+    box-shadow: none !important;
+}
+
+.form-login .input-group-text {
+    background-color: rgba(247, 249, 252, 0.4) !important;
+    border: 1px solid white !important;
+    border-left-width: 0px !important;
+    border-radius: 0px 4px 4px 0px !important;
+}
+
+.form-login .link-text {
+    font-family: 'Open Sans', sans-serif ;
+    font-size: 16px;
+    text-align: center;
+}
+
+.form-login .link-text a {
+    color: #FFA842;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+@media(max-width: 1440px) {
+    .create-user-container {
+        padding: 2em 4em;
+    }
+    .component-regis {        
+        width: 97%;        
+    }
+}
+
+@media(max-width: 768px) {    
+    .component-regis {        
+        flex-direction: column;    
+    }
+}
+@media(max-width: 425px) {    
+    .login-user-container {
+        padding: 2em 3em;
+    }
+    /* .create-user-container img {
+        width: 70%;
+    } */    
+    .form-login{
+        padding: 30px;        
+    }
+}
+
+/* end login section */
+
+/* mission report section */
+
+.mission-report-container {
+    padding: 2em 5em;
+    color: white;
+    font-family: 'Inconsolata', monospace ;
+}
+
+.mission-report-container .title {
+    text-align: center;
+}
+.mission-report-container .title p {
+    font-size: 34px;
+    margin-bottom: 0px;
+    color: #B8B8B8;
+}
+.mission-report-container .title h1 {
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 30px;
+}
+
+.stage-card {
+    margin-top: 5em;
+    padding: 40px 40px;
+    width: 60%;    
+    border: 2px dashed #E7E7E7;
+    box-sizing: border-box;
+    border-radius: 12px;  
+}
+
+.stage-desc {
+    font-size: 20px;
+    margin-top: 2em;
+}
+
+.stage-title {    
+    font-size: 28px;    
+    font-weight: 700;        
+}
+
+.stage-card p span {
+    color: #00FF19;
+}
+
+.btn-discord {
+    font-family: 'Open Sans', sans-serif;
+    padding: 13px 24px !important;
+    font-weight: bold !important;
+    background-color: #FFFFFF !important;
+    color: black !important;
+    border: 0px !important;
+    font-size: 20px !important;
+}
+.btn-discord svg {
+    margin-right: 10px;
+}
+
+.stage-title-fail {
+    color: #FF0000;
+}
+
+.problem-desc {    
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 25px;
+    margin: 0 20px;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.link-fix {
+    color: #20E9F6;
+}
+.link-fix a{
+    color: #20E9F6;
+    text-decoration: underline;
+}
+.link-fix a:hover {
+    color: #20e8f6c0;   
+}
