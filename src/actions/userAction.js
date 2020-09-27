@@ -29,7 +29,7 @@ export const postUserCreate = (data) => {
 
 export const postUserLogin = (data) => {
     return dispatch => {
-        axios.post('http://my-json-server.typicode.com/alfi2811/react-fake-api/users',data)
+        axios.post('https://my-json-server.typicode.com/alfi2811/react-fake-api/users',data)
             .then(function (response) {
                 // console.log(response)
                 dispatch({

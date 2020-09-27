@@ -56,7 +56,7 @@ class FormLoginComponent extends Component {
                                     <Field type="text" name="email" ikon={faEnvelope} component={renderField} label="EMAIL" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="password" ikon={faLock} component={renderField} label="PASSWORD" />
+                                    <Field type="password" name="password" ikon={faLock} component={renderField} label="PASSWORD" />
                                 </FormGroup>                               
                             </FormGroup>
                             <FormGroup>
