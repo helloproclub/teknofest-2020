@@ -10,7 +10,7 @@ import reducer from "./reducers";
 import thunk from "redux-thunk";
 
 //redux devtools harus di install ke chrome
-const store = createStore(reducer, compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const store = createStore(reducer, compose(applyMiddleware(thunk)));
 // atau bisa tanpa itu
 // const store = createStore(reducer, compose(applyMiddleware(thunk)));
 
