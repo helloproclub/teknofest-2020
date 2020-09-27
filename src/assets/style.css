@@ -1,4 +1,44 @@
 
+/* General Section */
+
+.input-style input {
+    font-family: 'Open Sans', sans-serif !important;
+    height: calc(1.5em + 1rem + 2px) !important;
+    border: 1px solid white !important;
+    border-right-width: 0px !important;
+    padding: 10px 0px 10px 16px !important;
+    border-radius: 4px 0px 0px 4px !important;
+    background-color: rgba(247, 249, 252, 0.4) !important;
+    color: white !important;    
+    font-size: 15px !important; 
+}
+
+.input-style select {
+    background-color: rgba(247, 249, 252, 0.4) !important;
+    color: white !important;
+    height: calc(1.5em + 1.2rem + 2px) !important;
+    padding: 10px 16px 10px !important;
+    border: 1px solid white !important;
+    border-radius: 4px !important;
+    font-size: 15px !important;
+}
+
+.input-style select option {
+    color: black;
+}
+
+.input-style input:focus, .input-style select:focus {
+    box-shadow: none !important;
+}
+
+.input-style .input-group-text  {
+    background-color: rgba(247, 249, 252, 0.4) !important;
+    border: 1px solid white !important;
+    border-left-width: 0px !important;
+    border-radius: 0px 4px 4px 0px !important;
+}
+
+/* End General Section */
 
 .home-container {
     display: flex;
@@ -53,16 +93,20 @@
     padding: 60px;    
     flex: 1;
 }
-.regis-card-1 p {
+.regis-card-1 .card-desc {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     border-bottom: 1px solid white;
     padding-bottom: 4px;
 }
 
-.regis-card-2 p {
+.regis-card-2 .card-desc {
     font-family: 'Inter', sans-serif;
     font-size: 14px;      
+}
+
+.regis-card-2 .card-desc a {
+    text-decoration: underline;
 }
 
 .regis-card-1 label,.regis-card-2 label {    
@@ -76,6 +120,17 @@
 }
 .regis-card-2 {
     background-color: #333333;
+}
+
+.regis-card-2 .link-text {
+    font-family: 'Open Sans', sans-serif ;
+    font-size: 16px;
+    text-align: center;
+}
+
+.regis-card-2 .link-text a {
+    color: #0095FF;    
+    text-decoration: none;
 }
 
 .input-border {
@@ -173,27 +228,6 @@
     background-color: #141414;
 }
 
-.input-text-login {
-    font-family: 'Open Sans', sans-serif !important;
-    height: calc(1.5em + 1rem + 2px) !important;
-    border: 1px solid white !important;
-    border-right-width: 0px !important;
-    padding: 10px 0px 10px 16px !important;
-    border-radius: 4px 0px 0px 4px !important;
-    background-color: rgba(247, 249, 252, 0.4) !important;
-    color: white !important;    
-    font-size: 15px !important; 
-}
-.input-text-login:focus {
-    box-shadow: none !important;
-}
-
-.form-login .input-group-text {
-    background-color: rgba(247, 249, 252, 0.4) !important;
-    border: 1px solid white !important;
-    border-left-width: 0px !important;
-    border-radius: 0px 4px 4px 0px !important;
-}
 
 .form-login .link-text {
     font-family: 'Open Sans', sans-serif ;
@@ -315,4 +349,53 @@
 }
 .link-fix a:hover {
     color: #20e8f6c0;   
+}
+
+
+@media(max-width: 1024px) {
+    .stage-card {
+        width: 80%;
+    }    
+}
+@media(max-width: 768px) {
+    .stage-card {
+        width: 95%;
+    }    
+}
+
+@media(max-width: 500px) {
+    .stage-card {
+       margin-top: 3em;
+       padding: 30px;
+    }    
+    .mission-report-container {
+        padding: 2em 2em;
+    }    
+    .mission-report-container .title p {
+        font-size: 30px;
+        line-height: 25px;
+        margin-top: 1em;
+    }
+    .mission-report-container .title h1 {        
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .stage-title {
+        font-size: 24px;        
+    }
+    .stage-desc {
+        font-size: 18px;        
+    }
+    .problem-desc {
+        font-size: 14px;
+        margin: 0 10px 1rem;
+    }
+    .btn-discord {     
+        padding: 13px 24px !important;
+        font-size: 16px !important;
+    }
+    .btn-discord svg {
+        width: 30px;
+        height: 30px;
+    }
 }

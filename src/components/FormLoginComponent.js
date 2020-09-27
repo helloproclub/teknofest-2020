@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
-import { Row, Col, FormGroup, Label, InputGroup, InputGroupAddon, Input, InputGroupText, } from 'reactstrap';
+import { Row, Col, FormGroup, Label, InputGroup, InputGroupAddon, InputGroupText, } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 
 const renderField = ({
@@ -22,7 +23,7 @@ const renderField = ({
                     {label}
                 </Label>
             </Col>
-            <Col md="12" >
+            <Col md="12" className="input-style" >
                 {/* <input style={{backgroundColor: 'transparent'}} {...input} className="form-control form-control-sm" type={type} placeholder={placeholder} disabled={disabled} readOnly={readOnly} ></input>
             {touched &&
                 ((error && <p style={{ color: "red" }}>{error} </p> ) ||
@@ -63,7 +64,8 @@ class FormLoginComponent extends Component {
                                     <button className="btn-block btn-regis mt-5" type="submit" disabled={this.props.submitting}>
                                         Register Account
                                     </button>
-                                    <p className="link-text mt-4">Don't have any account? <a href="#">Register</a> now!</p>
+                                    <p className="link-text mt-4">Don't have any account?<Link to="/"> <span> Register </span>
+                                    </Link>now!</p>
                                 </FormGroup>                                
                             </FormGroup>
                         </div>                        

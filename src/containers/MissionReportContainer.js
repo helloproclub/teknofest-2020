@@ -3,7 +3,7 @@ import MissionSuccessComponent from '../components/MissionSuccessComponent';
 import logo from './../assets/images/Logo.png';
 import MissionFailedComponent from '../components/MissionFailedComponent';
 
-let mission = false;
+let mission = true;
 export default class MissionReportContainer extends Component {
     render() {
         return (

@@ -1,6 +1,4 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FaDiscord } from 'react-icons/fa';
 
 const MissionFailedComponent = () => {
     return (
