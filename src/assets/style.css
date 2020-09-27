@@ -178,7 +178,7 @@
 }
 @media(max-width: 425px) {    
     .create-user-container {
-        padding: 2em 3em;
+        padding: 2em 2em;
     }
     .create-user-container img {
         width: 70%;
@@ -199,8 +199,7 @@
 }
 
 
-.component-login {
-    display: flex;    
+.component-login {    
     width: 50%;    
     border: 2px dashed #E7E7E7;
     box-sizing: border-box;
@@ -242,30 +241,45 @@
 }
 
 
-@media(max-width: 1440px) {
-    .create-user-container {
-        padding: 2em 4em;
-    }
-    .component-regis {        
-        width: 97%;        
+@media(max-width: 1000px) {    
+    .component-login {        
+        width: 60%;
     }
 }
-
 @media(max-width: 768px) {    
+    .login-user-container {
+        padding: 2em 4em;
+    }
+    .component-login {        
+        width: 80%;
+    }
     .component-regis {        
         flex-direction: column;    
     }
 }
-@media(max-width: 425px) {    
-    .login-user-container {
-        padding: 2em 3em;
+@media(max-width: 600px) {        
+    .form-login{
+        padding: 40px 50px 20px;        
     }
-    /* .create-user-container img {
-        width: 70%;
-    } */    
+    .component-login {        
+        width: 90%;
+    }
+}
+@media(max-width: 500px) {    
+    .login-user-container {
+        padding: 2em 2em;
+    }    
+    .form-login .form-title {    
+        font-size: 28px;            
+    }   
     .form-login{
         padding: 30px;        
     }
+}
+@media(max-width: 375px) {    
+    .login-user-container {
+        padding: 2em 1em;
+    }        
 }
 
 /* end login section */
@@ -397,5 +411,16 @@
     .btn-discord svg {
         width: 30px;
         height: 30px;
+    }
+}
+
+@media(max-width: 425px) {
+    .stage-card {
+        width: 100%;
+        padding: 20px;
+    }    
+    .btn-discord {     
+        padding: 13px 15px !important;
+        font-size: 14px !important;
     }
 }
