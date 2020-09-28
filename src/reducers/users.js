@@ -1,10 +1,12 @@
-import { POST_USER_CREATE, POST_USER_LOGIN } from '../actions/userAction'
+import { POST_USER_CREATE, POST_USER_LOGIN, CHANGE_USER_MISSION, NOTHING } from '../actions/userAction'
 
 let initialState = {    
     getResponDataUser: false,
     errorResponDataUser: false,
     getResponseLoginUser: false,
     errorResponseLoginUser: false,
+
+    missionReport: true,
     title: "Alfi Academy",
 }
 
@@ -22,7 +24,14 @@ const users = (state = initialState, action) => {
                 ...state,
                 getResponseLoginUser: action.payload.data,
                 errorResponseLoginUser: action.payload.errorMessage
-            }    
+            }   
+        case CHANGE_USER_MISSION:                      
+            return {
+                ...state,
+                missionReport: action.data                
+            }
+        case NOTHING:                      
+            return null
         
         default:
             return state;

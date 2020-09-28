@@ -55,14 +55,17 @@ class FormLoginComponent extends Component {
                                 <FormGroup>
                                     <Field type="text" name="email" ikon={faEnvelope} component={renderField} label="EMAIL" />
                                 </FormGroup>
+                                {/* <FormGroup >
+                                    <Field type="text" name="status" component={renderField} ikon={faEnvelope} label="STATUS" value="true" />
+                                </FormGroup> */}
                                 <FormGroup>
                                     <Field type="password" name="password" ikon={faLock} component={renderField} label="PASSWORD" />
-                                </FormGroup>                               
+                                </FormGroup>                                 
                             </FormGroup>
                             <FormGroup>
                                 <FormGroup>
                                     <button className="btn-block btn-regis mt-5" type="submit" disabled={this.props.submitting}>
-                                        Register Account
+                                        Login to Spaceship
                                     </button>
                                     <p className="link-text mt-4">Don't have any account?<Link to="/"> <span> Register </span>
                                     </Link>now!</p>

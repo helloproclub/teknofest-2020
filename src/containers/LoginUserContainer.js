@@ -6,8 +6,8 @@ import { postUserLogin } from '../actions/userAction';
 
 class LoginUserContainer extends Component {
     handleSubmit(data){
-        this.props.dispatch(postUserLogin(data))
         // console.log(data)
+        this.props.dispatch(postUserLogin(data))
     }
     render() {
         return (
