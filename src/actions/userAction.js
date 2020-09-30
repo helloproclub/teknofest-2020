@@ -29,7 +29,7 @@ export const getUserData = () => {
     // console.log("TOKENKU", token)    
     return dispatch => {
         dispatch(getLoadingScreen())
-        BaseUrl.get('/user/me', { headers: { Authorization: token } })        
+        BaseUrl.get('/user/me', { headers: { Authorization: token } })
             .then(function (response) {
                 console.log(response)
                 if (response.data.ok) {
@@ -63,8 +63,8 @@ export const getUserData = () => {
 }
 
 export const postUserCreate = (data, history) => {
-    return dispatch => {        
-        BaseUrl.post('/auth/register', data)        
+    return dispatch => {
+        BaseUrl.post('/auth/register', data)
             .then(function (response) {
                 if (response.data.ok) {
                     let data = response.data.data
@@ -98,7 +98,7 @@ export const postUserCreate = (data, history) => {
 
 export const postUserLogin = (data, history) => {
     return dispatch => {
-        BaseUrl.post('/auth/login', data)                
+        BaseUrl.post('/auth/login', data)
             .then(function (response) {
                 if (response.data.ok) {
                     let data = response.data.data
@@ -153,10 +153,10 @@ export const changeStateMission = () => {
 export const putUserUpdate = (data, history) => {
     return async (dispatch) => {
         let token = cookies.get('token')
-        
+
         try {
             const res = await BaseUrl.put('/user/me', { headers: { Authorization: token } }, data)
-            console.log(res)           
+            console.log(res)
         } catch (error) {
             dispatch({
                 type: PUT_USER_UPDATE,

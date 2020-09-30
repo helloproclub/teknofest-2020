@@ -6,18 +6,22 @@ import FormRegisComponent from '../components/FormRegisComponent';
 import logo from './../assets/images/Logo.png';
 
 class CreateUserContainer extends Component {
-    handleSubmit = async (data) => {                
+    handleSubmit = async (data) => {
+        let division = parseInt(data.divison);
+        if (!division) {
+            division = 0;
+        }
         data = await {
             ...data,
-            division: parseInt(data.division)
+            division,
         }
         console.log(data)
-        await this.props.register(data, this.props.history)             
+        await this.props.register(data, this.props.history)
     }
     render() {
         return (
-            <div className="create-user-container" style={{width: '100%'}}>                
-                <img src={logo} alt="logo proclub"  />
+            <div className="create-user-container" style={{ width: '100%' }}>
+                <img src={logo} alt="logo proclub" />
                 <center><h1 className="mt-3">Register Account for Teknofest 2020</h1></center>
                 <FormRegisComponent onSubmit={(data) => this.handleSubmit(data)} />
             </div>
@@ -27,7 +31,7 @@ class CreateUserContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        register: (userData, history) => dispatch(postUserCreate(userData, history)),        
+        register: (userData, history) => dispatch(postUserCreate(userData, history)),
     }
 }
 

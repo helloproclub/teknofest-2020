@@ -1,3 +1,5 @@
 import axios from 'axios'
 
-export default axios.create({ baseURL: 'https://aqueous-reaches-39441.herokuapp.com' })
+axios.defaults.withCredentials = false;
+
+export default axios.create({ baseURL: 'http://localhost:8000' })
