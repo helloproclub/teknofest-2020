@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleBackdrop() {
+export default function LoadingComponent() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleClose = () => {

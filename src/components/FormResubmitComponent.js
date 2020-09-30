@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 
 
+
 const mapStateToProps = state => {
     return {
         getData: state.users.getUserData,
@@ -75,7 +76,7 @@ class FormResubmitComponent extends Component {
     componentDidMount() {
         // if(!cookies.get('token')) this.props.history.push('/login')                
         // console.log(this.props.getDataLogin)
-        // console.log("Data: ", this.props.getData)
+        // console.log("Data: ", this.props.getData)        
     }
     render() {
         return (

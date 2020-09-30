@@ -300,6 +300,10 @@
     font-family: 'Inconsolata', monospace ;
 }
 
+.header-mission {
+    justify-content: space-between;
+}
+
 .mission-report-container .title {
     text-align: center;
 }
