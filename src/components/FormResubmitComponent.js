@@ -1,10 +1,26 @@
 import React, { Component } from 'react'
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
-import { Row, Col, FormGroup, Label, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
+import { Row, Col, FormGroup, Label, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 
+
+const mapStateToProps = state => {
+    return {
+        getData: state.users.getUserData,
+        initialValues: {
+            name: state.users.getUserData.name,
+            nim: state.users.getUserData.nim,
+            ktm_url: state.users.getUserData.ktm_url,
+            cv_url: state.users.getUserData.cv_url,
+            letter_url: state.users.getUserData.letter_url,
+            linkedin_url: state.users.getUserData.linkedin_url,
+            division: state.users.getUserData.division,
+            email: state.users.getUserData.email,            
+        }
+    }
+}
 
 const renderField = ({
     input,
@@ -14,6 +30,7 @@ const renderField = ({
     disabled,
     ikon,
     readOnly,
+    selectType,
     meta: { touched, error, warning },
 }) => (
         <Row>
@@ -29,23 +46,37 @@ const renderField = ({
                 (warning && <p style={{ color: "brown" }}>{warning} </p> ))
             }                                                      */}
                 {/* <FontAwesomeIcon icon={ikon} size="lg" /> */}
-                <InputGroup>
-                    <input className="input-text-login form-control" {...input} type={type} placeholder={placeholder} disabled={disabled} readOnly={readOnly}></input>                    
-                        <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                            {
-                                ikon ? 
-                                <FontAwesomeIcon icon={ikon} size="lg" color="white" />                             
-                                : null
-                            }   
-                            </InputGroupText>
-                        </InputGroupAddon>                                      
-                </InputGroup>                
+                {
+                    selectType ?
+                        <Input type="select" {...input} id="exampleSelect">
+                            <option value="1">Product Designer</option>
+                            <option value="0">Software Engineering</option>
+                            <option value="2">Business Analyst</option>
+                        </Input>
+                        :
+                        <InputGroup>
+                            <input className={disabled ? `input-text-login form-control input-disabled` : `input-text-login form-control`} {...input} type={type} placeholder={placeholder} disabled={disabled} readOnly={readOnly}></input>
+                            <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                    {
+                                        ikon ?
+                                            <FontAwesomeIcon icon={ikon} size="lg" color="white" />
+                                            : null
+                                    }
+                                </InputGroupText>
+                            </InputGroupAddon>
+                        </InputGroup>
+                }
             </Col>
         </Row>
     )
 
 class FormResubmitComponent extends Component {
+    componentDidMount() {
+        // if(!cookies.get('token')) this.props.history.push('/login')                
+        // console.log(this.props.getDataLogin)
+        // console.log("Data: ", this.props.getData)
+    }
     render() {
         return (
             <div>
@@ -58,24 +89,27 @@ class FormResubmitComponent extends Component {
                                     <Field type="text" name="name" component={renderField} label="FULL NAME" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="nim" component={renderField} label="NIM" />
-                                </FormGroup>                             
+                                    <Field type="text" name="nim" component={renderField} label="NIM" disabled={true} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Field type="select" selectType={true} name="division" component={renderField} label="SELECT DIVISION" />
+                                </FormGroup>
                             </FormGroup>
                         </div>
                         <div className="regis-card-2">
                             <p>On this section you will need Google Drive link file. You can click This for example, and dont forget to make acces with “Anyone with the link”.</p>
                             <FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="fotoKTM" ikon={faLink} component={renderField} label="PHOTO KTM" />
+                                    <Field type="text" name="ktm_url" ikon={faLink} component={renderField} label="PHOTO KTM" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="cv" ikon={faLink} component={renderField} label="CV/RESUME" />
+                                    <Field type="text" name="cv_url" ikon={faLink} component={renderField} label="CV/RESUME" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="coverLetter" ikon={faLink} component={renderField} label="COVER LETTER" />
+                                    <Field type="text" name="letter_url" ikon={faLink} component={renderField} label="COVER LETTER" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="linkedinLink" component={renderField} label="LINKEDIN LINK" />
+                                    <Field type="text" name="linkedin_url" ikon={faLink} component={renderField} label="LINKEDIN LINK" />
                                 </FormGroup>
                             </FormGroup>
                             <FormGroup>
@@ -108,4 +142,4 @@ FormResubmitComponent = reduxForm({
 })(FormResubmitComponent);
 
 
-export default connect()(FormResubmitComponent);
+export default connect(mapStateToProps, null)(FormResubmitComponent);

@@ -16,9 +16,9 @@ export default class App extends Component {
       <div className="background-cover">           
         <BrowserRouter>
           <Route path="/" exact component={HomeContainer} />                            
-          <Route path="/login" component={LoginUserContainer} />            
-          <Route path="/mission-report" component={MissionReportContainer} />            
-          <Route path="/resubmit" component={ResubmitContainer} />               
+          <Route path="/login" exact component={LoginUserContainer} />            
+          <Route path="/mission-report" exact component={MissionReportContainer} />            
+          <Route path="/resubmit" exact component={ResubmitContainer} />               
         </BrowserRouter>
       </div>
     )

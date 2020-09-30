@@ -4,10 +4,16 @@ import FormLoginComponent from '../components/FormLoginComponent';
 import { connect } from 'react-redux';
 import { postUserLogin } from '../actions/userAction';
 
+
+
+
 class LoginUserContainer extends Component {
-    handleSubmit(data){
-        // console.log(data)
-        this.props.dispatch(postUserLogin(data))
+    // handleSubmit(data){
+    //     // console.log(data)
+    //     this.props.dispatch(postUserLogin(data, this.props.history))
+    // }
+    handleSubmit = async (data) => {
+        await this.props.login(data, this.props.history)     
     }
     render() {
         return (
@@ -20,4 +26,11 @@ class LoginUserContainer extends Component {
         )
     }
 }
-export default connect()(LoginUserContainer);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        login: (userData, history) => dispatch(postUserLogin(userData, history)),        
+    }
+}
+
+export default connect(null, mapDispatchToProps)(LoginUserContainer);

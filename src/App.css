@@ -5,8 +5,10 @@ body {
 }
 
 .background-cover {
-    background-image: url('./assets/images/background.png');
-    background-size: cover;
+    background: url('./assets/images/bg-kiri.png'), url('./assets/images/bg-kanan.png'), #1A1A1A ;
+    background-position: left bottom, right top, center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: contain;
     min-height: 100vh;
 }
 

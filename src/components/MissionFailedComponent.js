@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MissionFailedComponent = () => {
     return (
@@ -14,7 +15,7 @@ const MissionFailedComponent = () => {
                             </p>
                         </div>
                     <p>But, No hope is lost yet, <br /> Be brave and overcame your mistake...</p>                    
-                    <p className="link-fix">&gt; <a href="#">Fix your submission</a></p>                    
+                    <p className="link-fix">&gt; <Link to="/resubmit">Fix your submission</Link></p>                    
 
                 </div>
             </div>

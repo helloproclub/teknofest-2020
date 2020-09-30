@@ -6,9 +6,13 @@ import FormRegisComponent from '../components/FormRegisComponent';
 import logo from './../assets/images/Logo.png';
 
 class CreateUserContainer extends Component {
-    handleSubmit(data){
-        // this.props.dispatch(postUserCreate(data))
+    handleSubmit = async (data) => {                
+        data = await {
+            ...data,
+            division: parseInt(data.division)
+        }
         console.log(data)
+        await this.props.register(data, this.props.history)             
     }
     render() {
         return (
@@ -21,4 +25,10 @@ class CreateUserContainer extends Component {
     }
 }
 
-export default connect()(CreateUserContainer);
+const mapDispatchToProps = dispatch => {
+    return {
+        register: (userData, history) => dispatch(postUserCreate(userData, history)),        
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateUserContainer);

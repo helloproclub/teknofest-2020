@@ -36,9 +36,9 @@ const renderField = ({
                 {
                     selectType ?
                     <Input type="select" {...input} id="exampleSelect">
-                        <option value="se">Software Engineering</option>
-                        <option value="ba">Business Analyst</option>
-                        <option value="pd">Product Designer</option>                        
+                        <option value="0">Software Engineering</option>
+                        <option value="1">Product Designer</option>                        
+                        <option value="2">Business Analyst</option>
                     </Input> 
                     :
                     <InputGroup>
@@ -73,36 +73,33 @@ class FormRegisComponent extends Component {
                                 </FormGroup>
                                 <FormGroup>
                                     <Field type="password" name="password" ikon={faLock} component={renderField} label="PASSWORD" />
-                                </FormGroup>
+                                </FormGroup>                                
                                 <FormGroup>
-                                    <Field type="password" name="confirmPassword" ikon={faLock} component={renderField} label="CONFIRM PASSWORD" />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Field type="text" name="nama" ikon={faUser} component={renderField} label="NAMA LENGKAP" />
+                                    <Field type="text" name="name" ikon={faUser} component={renderField} label="NAMA LENGKAP" />
                                 </FormGroup>
                                 <FormGroup>
                                     <Field type="text" name="nim" ikon={faIdBadge} component={renderField} label="NIM" />
-                                </FormGroup>                                
+                                </FormGroup>  
+                                <FormGroup>
+                                    <Field type="select" selectType={true} name="division" component={renderField} label="SELECT DIVISION" />
+                                </FormGroup>                              
                             </FormGroup>
                         </div>
                         <div className="regis-card-2">
                             <p className="card-desc">On this section you will need Google Drive link file. You can click <a href="https://drive.google.com/">This</a> for example, and dont forget to make acces with “Anyone with the link”.</p>
                             <FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="fotoKTM" ikon={faLink} component={renderField} label="PHOTO KTM" />
+                                    <Field type="text" name="ktm_url" ikon={faLink} component={renderField} label="PHOTO KTM" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="cv" ikon={faLink} component={renderField} label="CV/RESUME" />
+                                    <Field type="text" name="cv_url" ikon={faLink} component={renderField} label="CV/RESUME" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="coverLetter" ikon={faLink} component={renderField} label="COVER LETTER" />
+                                    <Field type="text" name="letter_url" ikon={faLink} component={renderField} label="COVER LETTER" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Field type="text" name="linkedinLink" ikon={faLink} component={renderField} label="LINKEDIN LINK" />
-                                </FormGroup>
-                                <FormGroup>
-                                    <Field type="select" selectType={true} name="divisi" component={renderField} label="PILIH DIVISI" />
-                                </FormGroup>
+                                    <Field type="text" name="linkedin_url" ikon={faLink} component={renderField} label="LINKEDIN LINK" />
+                                </FormGroup>                                
                             </FormGroup>
                             <FormGroup>
                                 <FormGroup>
