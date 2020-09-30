@@ -29,7 +29,7 @@ export const getUserData = () => {
     // console.log("TOKENKU", token)    
     return dispatch => {
         dispatch(getLoadingScreen())
-        axios.get('https://aqueous-reaches-39441.herokuapp.com/user/me', { headers: { Authorization: token } })
+        BaseUrl.get('/user/me', { headers: { Authorization: token } })        
             .then(function (response) {
                 console.log(response)
                 if (response.data.ok) {
@@ -63,8 +63,8 @@ export const getUserData = () => {
 }
 
 export const postUserCreate = (data, history) => {
-    return dispatch => {
-        axios.post('https://aqueous-reaches-39441.herokuapp.com/auth/register', data)
+    return dispatch => {        
+        BaseUrl.post('/auth/register', data)        
             .then(function (response) {
                 if (response.data.ok) {
                     let data = response.data.data
@@ -98,7 +98,7 @@ export const postUserCreate = (data, history) => {
 
 export const postUserLogin = (data, history) => {
     return dispatch => {
-        axios.post('https://aqueous-reaches-39441.herokuapp.com/auth/login', data)
+        BaseUrl.post('/auth/login', data)                
             .then(function (response) {
                 if (response.data.ok) {
                     let data = response.data.data
