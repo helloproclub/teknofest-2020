@@ -81,7 +81,10 @@ export const getUserData = () => {
 
 export const postUserCreate = (data, history) => {
     return dispatch => {
+<<<<<<< HEAD
         dispatch(getLoadingScreen())
+=======
+>>>>>>> 204a71ae300540b6f343dd2962e1fc6f9bc2baee
         BaseUrl.post('/auth/register', data)
             .then(function (response) {
                 console.log(response)
@@ -123,7 +126,10 @@ export const postUserCreate = (data, history) => {
 
 export const postUserLogin = (data, history) => {
     return dispatch => {
+<<<<<<< HEAD
         dispatch(getLoadingScreen())
+=======
+>>>>>>> 204a71ae300540b6f343dd2962e1fc6f9bc2baee
         BaseUrl.post('/auth/login', data)
             .then(function (response) {
                 if (response.data.ok === true) {
@@ -205,6 +211,7 @@ export const putUserUpdate = (data, history) => {
     return dispatch => {
         dispatch(getLoadingScreen())
         let token = cookies.get('token')
+<<<<<<< HEAD
         BaseUrl.put('/user/me', data, { headers: { Authorization: token } })
             .then(function (response) {
                 if (response.data.ok) {
@@ -219,6 +226,18 @@ export const putUserUpdate = (data, history) => {
                     })
                     history.push('/mission-report')
                     // window.location = '/mission-report'
+=======
+
+        try {
+            const res = await BaseUrl.put('/user/me', { headers: { Authorization: token } }, data)
+            console.log(res)
+        } catch (error) {
+            dispatch({
+                type: PUT_USER_UPDATE,
+                payload: {
+                    data: false,
+                    errorMessage: error.message,
+>>>>>>> 204a71ae300540b6f343dd2962e1fc6f9bc2baee
                 }
             })
             .catch(function (error) {

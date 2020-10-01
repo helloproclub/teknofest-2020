@@ -27,7 +27,7 @@ class CreateUserContainer extends Component {
         }
         data = await {
             ...data,
-            division: parseInt(data.division)
+            division,
         }
         console.log(data)
         this.props.register(data, this.props.history)
