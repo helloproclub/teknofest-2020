@@ -56,12 +56,18 @@ class CreateUserContainer extends Component {
                     this.props.loadingScreen ?
                         <LoadingComponent />
                         :
-                        <div className="create-user-container" style={{ width: '100%' }}>
-                            <img src={logo} alt="logo proclub" />
-                            <center><h1 className="mt-3">Register Account for Teknofest 2020</h1></center>
-                            <FormRegisComponent onSubmit={(data) => this.handleSubmit(data)} />
-                            {viewSnackbar}
+                        <div>
+                            <div className="d-flex header-mission">
+                                <img src={logo} alt="logo proclub" />                                
+                            </div>
+                            <div className="create-user-container" style={{ width: '100%' }}>                                
+                                <center><h1 className="mt-3">Register Account for Teknofest 2020</h1></center>
+                                <FormRegisComponent onSubmit={(data) => this.handleSubmit(data)} />
+                                {viewSnackbar}
+                            </div>
+
                         </div>
+
                 }
             </div>
         )

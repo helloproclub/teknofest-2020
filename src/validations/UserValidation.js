@@ -12,8 +12,8 @@ const UserValidation = (values) => {
     if(!values.confirmPassword || values.confirmPassword === "") {
         errors.confirmPassword = "Confirm Password is Required";
     }
-    if(!values.nama || values.nama === "") {
-        errors.nama = "Nama is Required";
+    if(!values.name || values.name === "") {
+        errors.name = "Nama is Required";
     }
     if(!values.nim || values.nim === "") {
         errors.nim = "NIM is Required";
@@ -21,17 +21,17 @@ const UserValidation = (values) => {
     if(isNaN(Number(values.nim))) {
         errors.nim = "NIM Must Be A Number";
     }
-    if(!values.fotoKTM || values.fotoKTM === "") {
-        errors.fotoKTM = "Photo KTM is Required";
+    if(!values.ktm_url || values.ktm_url === "") {
+        errors.ktm_url = "Photo KTM is Required";
     }
-    if(!values.cv || values.cv === "") {
-        errors.cv = "CV/Resume is Required";
+    if(!values.cv_url || values.cv_url === "") {
+        errors.cv_url = "CV/Resume is Required";
     }
-    if(!values.coverLetter || values.coverLetter === "") {
-        errors.coverLetter = "Cover Letter is Required";
+    if(!values.letter_url || values.letter_url === "") {
+        errors.letter_url = "Cover Letter is Required";
     }
-    if(!values.linkedinLink || values.linkedinLink === "") {
-        errors.linkedinLink = "Link Linkedin is Required";
+    if(!values.linkedin_url || values.linkedin_url === "") {
+        errors.linkedin_url = "Link Linkedin is Required";
     }
 
     return errors;

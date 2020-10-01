@@ -299,6 +299,9 @@
     color: white;
     font-family: 'Inconsolata', monospace ;
 }
+.header-mission {
+    padding: 2em 5em;    
+}
 
 .header-mission {
     justify-content: space-between;
@@ -397,13 +400,13 @@
 
 .btn-logout {
     font-family: 'Open Sans', sans-serif;
-    padding: 0px !important;
+    padding: 13px 24px !important;
     font-weight: bold !important;
-    background-color: transparent !important;
-    color: #FF000B !important;
-    text-decoration: underline;
+    background-color: #3E3E3E !important;
+    color: white !important;    
     border: 0px !important;
-    font-size: 30px !important;
+    border-radius: 8px !important;
+    font-size: 22px !important;
 }
 
 .btn-logout:focus {
@@ -424,7 +427,12 @@
 
 @media(max-width: 600px) {
     .header-mission .btn-logout {
-        font-size: 20px !important;
+        font-size: 14px !important;
+        padding: 9px 16px !important;
+        border-radius: 4px !important;
+    }
+    .header-mission img {
+        width: 40%;
     }
 }
 @media(max-width: 500px) {
@@ -432,8 +440,11 @@
        margin-top: 3em;
        padding: 30px;
     }    
-    .mission-report-container {
+    .mission-report-container, .header-mission {
         padding: 2em 2em;
+    }    
+    .header-mission {
+        padding: 1em 2em;
     }    
     .mission-report-container .title p {
         font-size: 30px;
@@ -474,8 +485,11 @@
     }
 }
 @media(max-width: 425px) {
+    .header-mission {
+        background-color: black;
+    }
     .header-mission img {
-        width: 60%;
+        width: 40%;
     }
         
     .stage-card {
