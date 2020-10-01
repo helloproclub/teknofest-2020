@@ -72,12 +72,7 @@ const renderField = ({
         </Row>
     )
 
-class FormResubmitComponent extends Component {
-    componentDidMount() {
-        // if(!cookies.get('token')) this.props.history.push('/login')                
-        // console.log(this.props.getDataLogin)
-        // console.log("Data: ", this.props.getData)        
-    }
+class FormResubmitComponent extends Component {    
     render() {
         return (
             <div>

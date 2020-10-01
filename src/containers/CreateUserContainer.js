@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Container } from 'reactstrap'
 import { connect } from "react-redux";
 import Cookies from 'universal-cookie';
 import { getSnackbars, postUserCreate } from '../actions/userAction';
@@ -27,7 +26,7 @@ class CreateUserContainer extends Component {
         }
         data = await {
             ...data,
-            division,
+            division: parseInt(data.division)
         }
         console.log(data)
         this.props.register(data, this.props.history)
@@ -41,8 +40,7 @@ class CreateUserContainer extends Component {
             }
             cookies.set('snackbar', infoMsg)
             this.props.history.push('/mission-report')
-        }
-        // console.log(this.props.getDataLogin)
+        }        
     }
     render() {
         let viewSnackbar

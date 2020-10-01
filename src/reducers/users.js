@@ -20,21 +20,20 @@ let initialState = {
 const users = (state = initialState, action) => {
     switch (action.type) {
         case GET_LOADING_SCREEN:
-            // console.log("hai")
+            
             return {
                 ...state,
                 loading: action.payload.data,
             }
         case GET_SNACKBAR:
-            // console.log("hai")
+            
             return {
                 ...state,
                 message: action.desc.message,
                 colorMessage: action.desc.color,
                 loading: false,
             }
-        case POST_USER_CREATE:
-            // console.log("hai")
+        case POST_USER_CREATE:            
             return {
                 ...state,
                 getResponDataUser: action.payload.data,
@@ -49,7 +48,7 @@ const users = (state = initialState, action) => {
                 loading: false,
             }
         case GET_USER_DATA:
-            // console.log("hai")
+            
             return {
                 ...state,
                 getUserData: action.payload.data,

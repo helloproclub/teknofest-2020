@@ -1,5 +1,4 @@
 import React from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import progressPic from './../assets/images/progress-img.png'
 
 const MissionOnGoingComponent = () => {

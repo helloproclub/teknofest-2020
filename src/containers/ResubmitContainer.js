@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Container } from 'reactstrap'
 import { connect } from "react-redux";
 import { getLoadingScreen, getSnackbars, getUserData, putUserUpdate, userLogout } from '../actions/userAction';
 import FormResubmitComponent from '../components/FormResubmitComponent';
@@ -17,14 +16,12 @@ const mapStateToProps = state => {
 }
 
 class ResubmitContainer extends Component {
-    handleLogout = async () => {
-        console.log("out")
+    handleLogout = async () => {        
         await this.props.loadingOut()
         this.props.logout(this.props.history)
         
     }
-    handleSubmit = (data) => {
-        console.log(data)
+    handleSubmit = (data) => {        
         this.props.update(data, this.props.history)
     }
     componentDidMount() {
@@ -32,11 +29,7 @@ class ResubmitContainer extends Component {
             this.props.removeSnackbar()
             this.props.history.push('/login')
         }
-        // else if(this.props.getMissionReport !== 2 || this.props.getMissionReport !== '2') {
-        //     this.props.removeSnackbar()     
-        //     this.props.history.push('/mission-report')                
-        // }
-        // console.log(this.props.getDataLogin)
+        
     }
     render() {        
         return (

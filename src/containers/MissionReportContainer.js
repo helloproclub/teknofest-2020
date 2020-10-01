@@ -4,7 +4,6 @@ import logo from './../assets/images/Logo.png';
 import MissionFailedComponent from '../components/MissionFailedComponent';
 import Cookies from 'universal-cookie'
 import { connect } from 'react-redux';
-// import users from '../reducers/users';
 import { changeStateMission, getSnackbars, userLogout, getLoadingScreen } from '../actions/userAction';
 import MissionOnGoingComponent from '../components/MissionOnGoingComponent';
 import LoadingComponent from '../components/LoadingComponent';
@@ -23,8 +22,7 @@ const mapStateToProps = state => {
 }
 
 class MissionReportContainer extends Component {
-    handleLogout = async () => {
-        console.log("out")
+    handleLogout = async () => {        
         await this.props.loadingScreen()
         this.props.logout(this.props.history)
         
@@ -35,11 +33,9 @@ class MissionReportContainer extends Component {
             this.props.history.push('/login')                
         }      
         if(cookies.get('snackbar')){
-            let data = cookies.get('snackbar')
-            console.log(data)
+            let data = cookies.get('snackbar')            
             this.props.getSnackbar(data.message, data.color)
-        }       
-        // console.log(this.props.getDataLogin)
+        }               
     }
     
     render() {
@@ -57,13 +53,11 @@ class MissionReportContainer extends Component {
             titleMission = 'wait...'
             viewMission = <LoadingComponent />
         }
-        if(this.props.getMsg !== false){
-            console.log(this.props.getMsg)
+        if(this.props.getMsg !== false){            
             viewSnackbar = <SnackbarComponent conditionMsg={this.props.getColor} message={this.props.getMsg} />
         } else {
             viewSnackbar = ''
-        }
-        // console.log(this.props.messageRevision)
+        }        
         return (
             <div className="mission-report-container" style={{width: '100%'}}>                
                 <div className="d-flex header-mission">

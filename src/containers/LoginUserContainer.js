@@ -16,11 +16,7 @@ const mapStateToProps = state => {
     }
 }
 
-class LoginUserContainer extends Component {
-    // handleSubmit(data){
-    //     // console.log(data)
-    //     this.props.dispatch(postUserLogin(data, this.props.history))
-    // }
+class LoginUserContainer extends Component {    
     handleSubmit = async (data) => {        
         await this.props.login(data, this.props.history)
     }
@@ -33,13 +29,11 @@ class LoginUserContainer extends Component {
             }
             cookies.set('snackbar', infoMsg)
             this.props.history.push('/mission-report')                
-        }
-        // console.log(this.props.getDataLogin)
+        }     
     }
     render() {
         let viewSnackbar
-        if(this.props.getMsg !== false){
-            console.log(this.props.getMsg)
+        if(this.props.getMsg !== false){            
             viewSnackbar = <SnackbarComponent conditionMsg={this.props.getColor} message={this.props.getMsg} />
         } else {
             viewSnackbar = ''

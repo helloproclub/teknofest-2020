@@ -41,31 +41,21 @@ export const getSnackbars = (message, color) => {
 }
 
 export const getUserData = () => {
-    let token = cookies.get('token')
-    // let data = cookies.get('user')    
-    // console.log("TOKENKU", token)    
+    let token = cookies.get('token')    
     return dispatch => {
         dispatch(getLoadingScreen())
         BaseUrl.get('/user/me', { headers: { Authorization: token } })
-            .then(function (response) {
-                console.log(response)
+            .then(function (response) {                
                 if (response.data.ok) {
-                    let data = response.data.data
-                    // cookies.set('user', data)
-                    // cookies.set('token', data.token)
+                    let data = response.data.data                    
                     dispatch({
                         type: GET_USER_DATA,
                         payload: {
                             data: data,
                             errorMessage: false,
                         }
-                    })
-                    // history.push('/mission-report')
-                    // window.location = '/mission-report'
-                }
-                // else {
-                //     history.push('/login')
-                // }
+                    })                    
+                }                
             })
             .catch(function (error) {
                 dispatch({
@@ -81,13 +71,9 @@ export const getUserData = () => {
 
 export const postUserCreate = (data, history) => {
     return dispatch => {
-<<<<<<< HEAD
         dispatch(getLoadingScreen())
-=======
->>>>>>> 204a71ae300540b6f343dd2962e1fc6f9bc2baee
         BaseUrl.post('/auth/register', data)
-            .then(function (response) {
-                console.log(response)
+            .then(function (response) {                
                 if (response.data.ok) {
                     let data = response.data.data
                     cookies.set('user', data)
@@ -98,17 +84,14 @@ export const postUserCreate = (data, history) => {
                             data: data,
                             errorMessage: false,
                         }
-                    })
-                    // history.push('/mission-report')
+                    })                    
                     window.location = '/mission-report'
                 }
-                else {
-                    console.log(response)
+                else {                    
                     history.push('/login')
                 }
             })
-            .catch(function (error) {
-                console.log(error)
+            .catch(function (error) {                
                 dispatch({
                     type: POST_USER_CREATE,
                     payload: {
@@ -126,14 +109,10 @@ export const postUserCreate = (data, history) => {
 
 export const postUserLogin = (data, history) => {
     return dispatch => {
-<<<<<<< HEAD
         dispatch(getLoadingScreen())
-=======
->>>>>>> 204a71ae300540b6f343dd2962e1fc6f9bc2baee
         BaseUrl.post('/auth/login', data)
             .then(function (response) {
-                if (response.data.ok === true) {
-                    console.log("Haeee")
+                if (response.data.ok === true) {                    
                     let data = response.data.data
                     cookies.set('user', data, { expires: new Date(Date.now() + 3600000) })
                     cookies.set('token', data.token, { expires: new Date(Date.now() + 3600000) })
@@ -159,8 +138,7 @@ export const postUserLogin = (data, history) => {
                     }
                 })
                 let msg = 'Login Gagal'
-                let color = 'error'
-                console.log(error.message)
+                let color = 'error'                
                 if (error.message === 'Request failed with status code 404') {
                     msg = "Can't find this email, register an account first"
                     color = 'warning'
@@ -174,8 +152,7 @@ export const postUserLogin = (data, history) => {
 
 export const changeStateMission = () => {
     if (cookies.get('token')) {
-        let data = cookies.get('user')
-        console.log(data.id)
+        let data = cookies.get('user')        
         return dispatch => {
             BaseUrl.get('/status/' + data.id)
                 .then(function (response) {
@@ -184,9 +161,7 @@ export const changeStateMission = () => {
                         dispatch({
                             type: CHANGE_USER_MISSION,
                             data: data
-                        })
-                        // history.push('/mission-report')
-                        // window.location = '/mission-report'
+                        })                        
                     }
                 })
                 .catch(function (error) {
@@ -211,11 +186,9 @@ export const putUserUpdate = (data, history) => {
     return dispatch => {
         dispatch(getLoadingScreen())
         let token = cookies.get('token')
-<<<<<<< HEAD
         BaseUrl.put('/user/me', data, { headers: { Authorization: token } })
             .then(function (response) {
-                if (response.data.ok) {
-                    console.log(response)
+                if (response.data.ok) {                    
                     let data = response.data.data
                     dispatch({
                         type: PUT_USER_UPDATE,
@@ -224,20 +197,7 @@ export const putUserUpdate = (data, history) => {
                             errorMessage: false,
                         }
                     })
-                    history.push('/mission-report')
-                    // window.location = '/mission-report'
-=======
-
-        try {
-            const res = await BaseUrl.put('/user/me', { headers: { Authorization: token } }, data)
-            console.log(res)
-        } catch (error) {
-            dispatch({
-                type: PUT_USER_UPDATE,
-                payload: {
-                    data: false,
-                    errorMessage: error.message,
->>>>>>> 204a71ae300540b6f343dd2962e1fc6f9bc2baee
+                    history.push('/mission-report')                    
                 }
             })
             .catch(function (error) {
@@ -249,19 +209,7 @@ export const putUserUpdate = (data, history) => {
                     }
                 })
             })
-
-        // try {
-        //     const res = await BaseUrl.put('/user/me', { headers: { Authorization: token } }, data)
-        //     console.log(res)           
-        // } catch (error) {
-        //     dispatch({
-        //         type: PUT_USER_UPDATE,
-        //         payload: {
-        //             data: false,
-        //             errorMessage: error.message,
-        //         }
-        //     })
-        // }
+        
     }
 }
 
@@ -271,8 +219,7 @@ export const userLogout = (history) => {
         cookies.remove('user')
         dispatch({
             type: USER_LOGOUT,
-        })
-        // history.push('/login')
+        })        
         window.location = '/login'
 
     }
