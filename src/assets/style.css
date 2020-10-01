@@ -302,6 +302,7 @@
 
 .header-mission {
     justify-content: space-between;
+    align-items: center;
 }
 
 .mission-report-container .title {
@@ -394,6 +395,22 @@
     text-align: center;
 }
 
+.btn-logout {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px !important;
+    font-weight: bold !important;
+    background-color: transparent !important;
+    color: #FF000B !important;
+    text-decoration: underline;
+    border: 0px !important;
+    font-size: 30px !important;
+}
+
+.btn-logout:focus {
+    color: #ff000dc4 !important;
+    box-shadow: none !important;
+}
+
 @media(max-width: 1024px) {
     .stage-card {
         width: 80%;
@@ -405,6 +422,11 @@
     }    
 }
 
+@media(max-width: 600px) {
+    .header-mission .btn-logout {
+        font-size: 20px !important;
+    }
+}
 @media(max-width: 500px) {
     .stage-card {
        margin-top: 3em;
@@ -442,7 +464,20 @@
     }
 }
 
+@media(max-width: 320px) {
+    .header-mission img {
+        width: 40%;
+    }
+    
+    .header-mission .btn-logout {
+        font-size: 16px !important;
+    }
+}
 @media(max-width: 425px) {
+    .header-mission img {
+        width: 60%;
+    }
+        
     .stage-card {
         width: 100%;
         padding: 20px;

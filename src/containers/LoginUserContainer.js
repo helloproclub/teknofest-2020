@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import logo from './../assets/images/Logo.png';
 import FormLoginComponent from '../components/FormLoginComponent';
 import { connect } from 'react-redux';
-import { getLoadingScreen, postUserLogin } from '../actions/userAction';
+import { getSnackbars, postUserLogin } from '../actions/userAction';
 import SnackbarComponent from '../components/SnackbarComponent';
 import LoadingComponent from '../components/LoadingComponent';
+import Cookies from 'universal-cookie';
 
+const cookies = new Cookies()
 const mapStateToProps = state => {
     return {
         loadingScreen: state.users.loading,
@@ -21,6 +23,18 @@ class LoginUserContainer extends Component {
     // }
     handleSubmit = async (data) => {        
         await this.props.login(data, this.props.history)
+    }
+    componentDidMount(){
+        this.props.removeSnackbar()      
+        if(cookies.get('token')) {                
+            let infoMsg = {
+                message: 'Already Login',
+                color: 'info'
+            }
+            cookies.set('snackbar', infoMsg)
+            this.props.history.push('/mission-report')                
+        }
+        // console.log(this.props.getDataLogin)
     }
     render() {
         let viewSnackbar
@@ -53,6 +67,7 @@ class LoginUserContainer extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         login: (userData, history) => dispatch(postUserLogin(userData, history)),        
+        removeSnackbar: () => dispatch(getSnackbars(false, false)),        
     }
 }
 

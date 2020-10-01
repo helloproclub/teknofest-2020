@@ -1,8 +1,15 @@
 import React from 'react'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaDiscord } from 'react-icons/fa';
+import { connect } from 'react-redux';
 
-const MissionSuccessComponent = () => {
+const mapStateToProps = state => {
+    return {
+        linkDiscord: state.users.missionReportDiscord,
+    }
+}
+
+const MissionSuccessComponent = (props) => {
     return (
         <div>
             <div className="stage-card mx-auto">
@@ -15,7 +22,7 @@ const MissionSuccessComponent = () => {
                         <p>Welcome to Teknofest 2020 <br /> You've been invited to join our battlefield</p>
                     </center>
                 </div>
-                <a href="#" className="btn btn-block btn-discord"> 
+                <a href={props.linkDiscord} className="btn btn-block btn-discord"> 
                     <FaDiscord size={40} />
                     Join Proclub Discord</a>
             </div>
@@ -23,4 +30,4 @@ const MissionSuccessComponent = () => {
     )
 }
 
-export default MissionSuccessComponent
+export default connect(mapStateToProps, null)(MissionSuccessComponent)

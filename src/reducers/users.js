@@ -1,4 +1,4 @@
-import { POST_USER_CREATE, POST_USER_LOGIN, CHANGE_USER_MISSION, NOTHING, GET_USER_DATA, GET_LOADING_SCREEN, PUT_USER_UPDATE, GET_SNACKBAR } from '../actions/userAction'
+import { POST_USER_CREATE, POST_USER_LOGIN, CHANGE_USER_MISSION, NOTHING, GET_USER_DATA, GET_LOADING_SCREEN, PUT_USER_UPDATE, GET_SNACKBAR, USER_LOGOUT } from '../actions/userAction'
 
 let initialState = {
     getResponDataUser: false,
@@ -13,6 +13,7 @@ let initialState = {
 
     missionReport: true,
     missionReportMessage: false,
+    missionReportDiscord: false,
     title: "Alfi Academy",
 }
 
@@ -22,13 +23,13 @@ const users = (state = initialState, action) => {
             // console.log("hai")
             return {
                 ...state,
-                loading: action.payload.data,                
+                loading: action.payload.data,
             }
         case GET_SNACKBAR:
             // console.log("hai")
             return {
                 ...state,
-                message: action.desc.message,                
+                message: action.desc.message,
                 colorMessage: action.desc.color,
                 loading: false,
             }
@@ -37,7 +38,8 @@ const users = (state = initialState, action) => {
             return {
                 ...state,
                 getResponDataUser: action.payload.data,
-                errorResponDataUser: action.payload.errorMessage
+                errorResponDataUser: action.payload.errorMessage,
+                loading: false,                
             }
         case POST_USER_LOGIN:
             return {
@@ -59,6 +61,7 @@ const users = (state = initialState, action) => {
                 ...state,
                 missionReport: action.data.status,
                 missionReportMessage: action.data.message,
+                missionReportDiscord: action.data.discord_invite,
             }
         case PUT_USER_UPDATE:
             return {
@@ -66,6 +69,22 @@ const users = (state = initialState, action) => {
                 getResponDataUser: action.payload.data,
                 errorResponDataUser: action.payload.errorMessage,
                 loading: false,
+            }
+        case USER_LOGOUT:
+            return {
+                ...state,
+                getResponDataUser: false,
+                errorResponDataUser: false,
+                getResponseLoginUser: false,
+                errorResponseLoginUser: false,
+                getUserData: false,
+                errorUserData: false,
+                loading: false,
+                message: false,
+                colorMessage: false,
+
+                missionReport: true,
+                missionReportMessage: false,
             }
         case NOTHING:
             return ''

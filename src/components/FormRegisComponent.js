@@ -35,7 +35,7 @@ const renderField = ({
                 {/* <FontAwesomeIcon icon={ikon} size="lg" /> */}
                 {
                     selectType ?
-                    <Input type="select" {...input} id="exampleSelect">
+                    <Input type="select" {...input} defaultValue={0} id="exampleSelect">
                         <option value="0">Software Engineering</option>
                         <option value="1">Product Designer</option>                        
                         <option value="2">Business Analyst</option>
@@ -86,7 +86,7 @@ class FormRegisComponent extends Component {
                             </FormGroup>
                         </div>
                         <div className="regis-card-2">
-                            <p className="card-desc">On this section you will need Google Drive link file. You can click <a href="https://drive.google.com/">This</a> for example, and dont forget to make acces with “Anyone with the link”.</p>
+                            <p className="card-desc">On this section you will need Google Drive link file. You can click <a target="_blank" rel="noopener noreferrer" href="https://support.google.com/drive/answer/7166529?co=GENIE.Platform%3DDesktop&hl=en">This</a> for example, and dont forget to make acces with “Anyone with the link”.</p>
                             <FormGroup>
                                 <FormGroup>
                                     <Field type="text" name="ktm_url" ikon={faLink} component={renderField} label="PHOTO KTM" />

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Cookies from 'universal-cookie'
 import BaseUrl from '../Constants/BaseUrl';
 
@@ -13,6 +12,7 @@ export const NOTHING = "NOTHING";
 
 export const GET_LOADING_SCREEN = "GET_LOADING_SCREEN";
 export const GET_SNACKBAR = "GET_SNACKBAR";
+export const USER_LOGOUT = "USER_LOGOUT";
 
 export const getLoadingScreen = () => {
     return dispatch => {
@@ -26,6 +26,9 @@ export const getLoadingScreen = () => {
 }
 
 export const getSnackbars = (message, color) => {
+    if(cookies.get('snackbar')){
+        cookies.remove('snackbar')
+    }
     return dispatch => {
         dispatch({
             type: GET_SNACKBAR,
@@ -78,8 +81,10 @@ export const getUserData = () => {
 
 export const postUserCreate = (data, history) => {
     return dispatch => {
+        dispatch(getLoadingScreen())
         BaseUrl.post('/auth/register', data)
             .then(function (response) {
+                console.log(response)
                 if (response.data.ok) {
                     let data = response.data.data
                     cookies.set('user', data)
@@ -95,10 +100,12 @@ export const postUserCreate = (data, history) => {
                     window.location = '/mission-report'
                 }
                 else {
+                    console.log(response)
                     history.push('/login')
                 }
             })
             .catch(function (error) {
+                console.log(error)
                 dispatch({
                     type: POST_USER_CREATE,
                     payload: {
@@ -106,6 +113,10 @@ export const postUserCreate = (data, history) => {
                         errorMessage: error.message,
                     }
                 })
+                let msg = 'Already Have This Account'
+                let color = 'error'                
+                dispatch(getSnackbars(msg, color))
+                history.push('/')
             })
     }
 }
@@ -115,7 +126,7 @@ export const postUserLogin = (data, history) => {
         dispatch(getLoadingScreen())
         BaseUrl.post('/auth/login', data)
             .then(function (response) {
-                if (response.data.ok == true) {
+                if (response.data.ok === true) {
                     console.log("Haeee")
                     let data = response.data.data
                     cookies.set('user', data, { expires: new Date(Date.now() + 3600000) })
@@ -133,8 +144,7 @@ export const postUserLogin = (data, history) => {
 
                 }
             })
-            .catch(function (error) {
-                console.log("jnck")
+            .catch(function (error) {                
                 dispatch({
                     type: POST_USER_LOGIN,
                     payload: {
@@ -145,7 +155,7 @@ export const postUserLogin = (data, history) => {
                 let msg = 'Login Gagal'
                 let color = 'error'
                 console.log(error.message)
-                if (error.message == 'Request failed with status code 404') {
+                if (error.message === 'Request failed with status code 404') {
                     msg = "Can't find this email, register an account first"
                     color = 'warning'
                 }
@@ -161,25 +171,24 @@ export const changeStateMission = () => {
         let data = cookies.get('user')
         console.log(data.id)
         return dispatch => {
-            BaseUrl.get('/status/'+data.id)
+            BaseUrl.get('/status/' + data.id)
                 .then(function (response) {
-                    if (response.data.ok) {
-                        console.log(response)
-                        let data = response.data.data                                                
+                    if (response.data.ok) {                        
+                        let data = response.data.data                        
                         dispatch({
                             type: CHANGE_USER_MISSION,
                             data: data
                         })
                         // history.push('/mission-report')
                         // window.location = '/mission-report'
-                    }                    
+                    }
                 })
                 .catch(function (error) {
                     dispatch({
-                        type: CHANGE_USER_MISSION,                        
-                        data: false,                                                    
+                        type: CHANGE_USER_MISSION,
+                        data: false,
                     })
-                })            
+                })
         }
     } else {
         return dispatch => {
@@ -200,7 +209,7 @@ export const putUserUpdate = (data, history) => {
             .then(function (response) {
                 if (response.data.ok) {
                     console.log(response)
-                    let data = response.data.data                                                
+                    let data = response.data.data
                     dispatch({
                         type: PUT_USER_UPDATE,
                         payload: {
@@ -210,7 +219,7 @@ export const putUserUpdate = (data, history) => {
                     })
                     history.push('/mission-report')
                     // window.location = '/mission-report'
-                } 
+                }
             })
             .catch(function (error) {
                 dispatch({
@@ -234,5 +243,18 @@ export const putUserUpdate = (data, history) => {
         //         }
         //     })
         // }
+    }
+}
+
+export const userLogout = (history) => {
+    return dispatch => {        
+        cookies.remove('token')
+        cookies.remove('user')
+        dispatch({
+            type: USER_LOGOUT,
+        })
+        // history.push('/login')
+        window.location = '/login'
+
     }
 }

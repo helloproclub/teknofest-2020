@@ -5,6 +5,7 @@ import { Row, Col, FormGroup, Label, InputGroup, InputGroupAddon, InputGroupText
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import UserValidation from '../validations/UserValidation';
 
 
 const renderField = ({
@@ -38,7 +39,10 @@ const renderField = ({
                         </InputGroupText>
                     </InputGroupAddon>
                 </InputGroup>
-
+                {touched &&
+                    ((error && <p style={{ color: "red", marginBottom: "0px" }}>{error} </p>) ||
+                        (warning && <p style={{ color: "brown" }}>{warning} </p>))
+                }
             </Col>
         </Row>
     )
@@ -83,6 +87,7 @@ class FormLoginComponent extends Component {
 FormLoginComponent = reduxForm({
     form: "formLoginUser",
     enableReinitialize: true,
+    validate: UserValidation,   
 })(FormLoginComponent);
 
 

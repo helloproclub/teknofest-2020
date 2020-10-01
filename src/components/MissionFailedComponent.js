@@ -8,7 +8,7 @@ const mapStateToProps = state => {
     }
 }
 
-const MissionFailedComponent = () => {
+const MissionFailedComponent = (props) => {    
     return (
         <div>
             <div className="stage-card mx-auto">
@@ -19,7 +19,7 @@ const MissionFailedComponent = () => {
                         <div className="problem-desc">
                             
                             <p>
-                                { this.props.messageRevision }
+                                {props.messageRevision}
                             </p>
                         </div>
                     <p>But, No hope is lost yet, <br /> Be brave and overcame your mistake...</p>                    
