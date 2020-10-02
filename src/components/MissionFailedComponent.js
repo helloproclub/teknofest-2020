@@ -12,10 +12,10 @@ const MissionFailedComponent = (props) => {
     return (
         <div>
             <div className="stage-card mx-auto">
-                <p className="stage-title stage-title-fail">Stage 1 : Overcome You Mistake</p>                
+                <p className="stage-title stage-title-fail">Stage 1 : Overcome Your Mistake</p>                
                 <div className="stage-desc">
                     <p>Let's not be discouraged.</p>
-                    <p>Apparently, there are some issue with your sumission:</p>                                        
+                    <p>Apparently, there are some issue with your submission:</p>                                        
                         <div className="problem-desc">
                             
                             <p>

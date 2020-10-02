@@ -28,10 +28,17 @@ class ResubmitContainer extends Component {
     handleSubmit = (data) => {
         this.props.update(data, this.props.history)
     }
-    componentDidMount() {
+    componentDidMount() {        
         if (!cookies.get('token')) {
             this.props.removeSnackbar()
             this.props.history.push('/login')
+        }
+        if (cookies.get('snackbar') && this.props.getMsg === false) {
+            let data = cookies.get('snackbar')
+            this.props.getSnackbar(data.message, data.color)
+            cookies.remove('snackbar')            
+        } else {
+            this.props.removeSnackbar()    
         }
 
     }
