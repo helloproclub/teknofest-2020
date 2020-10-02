@@ -99,7 +99,7 @@ export const postUserCreate = (data, history) => {
                         errorMessage: error.message,
                     }
                 })
-                let msg = 'Already Have This Account'
+                let msg = 'An Account has been registered with this email before'
                 let color = 'error'                
                 dispatch(getSnackbars(msg, color))
                 history.push('/')
@@ -137,11 +137,12 @@ export const postUserLogin = (data, history) => {
                         errorMessage: error.message,
                     }
                 })
-                let msg = 'Login Gagal'
-                let color = 'error'                
+                let msg = 'Login Failed'
+                let color = 'error'                  
                 if (error.message === 'Request failed with status code 404') {
-                    msg = "Can't find this email, register an account first"
-                    color = 'warning'
+                    msg = "Can't find this email, Please register an account first"                    
+                } else if (error.message === 'Request failed with status code 401'){
+                    msg = "Something's wrong with your email or password"                    
                 }
                 dispatch(getSnackbars(msg, color))
                 history.push('/login')
@@ -208,6 +209,10 @@ export const putUserUpdate = (data, history) => {
                         errorMessage: error.message,
                     }
                 })
+                let msg = 'Update Failed'
+                let color = 'error'                                  
+                dispatch(getSnackbars(msg, color))
+                history.push('/resubmit')                
             })
         
     }

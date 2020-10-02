@@ -39,8 +39,7 @@ class MissionReportContainer extends Component {
             this.props.getSnackbar(data.message, data.color)
         }
     }
-
-    render() {
+    render() {        
         let viewMission, titleMission, viewSnackbar
         if (this.props.getMissionReport === 1 || this.props.getMissionReport === "1") {
             titleMission = 'Mission Report'

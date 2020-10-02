@@ -6,6 +6,7 @@ import logo from './../assets/images/Logo.png';
 import LoadingComponent from '../components/LoadingComponent';
 import Cookies from 'universal-cookie';
 import { ImExit } from 'react-icons/im';
+import SnackbarComponent from '../components/SnackbarComponent';
 
 const cookies = new Cookies()
 
@@ -13,6 +14,8 @@ const mapStateToProps = state => {
     return {
         loadingScreen: state.users.loading,
         getMissionReport: state.users.missionReport,
+        getMsg: state.users.message,
+        getColor: state.users.colorMessage
     }
 }
 
@@ -33,6 +36,12 @@ class ResubmitContainer extends Component {
 
     }
     render() {
+        let viewSnackbar
+        if(this.props.getMsg !== false){            
+            viewSnackbar = <SnackbarComponent conditionMsg={this.props.getColor} message={this.props.getMsg} />
+        } else {
+            viewSnackbar = ''
+        }
         return (
             <div>
                 {
@@ -51,6 +60,7 @@ class ResubmitContainer extends Component {
                                 <center><h1 className="mt-3" style={{ color: '#20E9F6' }}>Teknofest 2020 Submission Fix</h1></center>
                                 <FormResubmitComponent onSubmit={(data) => this.handleSubmit(data)} />
                             </div>
+                            { viewSnackbar }
                         </div>
 
 

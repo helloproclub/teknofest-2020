@@ -21,7 +21,7 @@ const MissionSuccessComponent = (props) => {
                         <p>Welcome to Teknofest 2020 <br /> You've been invited to join our battlefield</p>
                     </center>
                 </div>
-                <a href={props.linkDiscord} className="btn btn-block btn-discord"> 
+                <a target="_blank" rel="noopener noreferrer" href={props.linkDiscord} className="btn btn-block btn-discord"> 
                     <FaDiscord size={40} />
                     Join Proclub Discord</a>
             </div>
