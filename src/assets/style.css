@@ -331,6 +331,7 @@
     box-sizing: border-box;
     border-radius: 12px;  
     max-width: 750px;
+    background-color: #1A1A1A;
 }
 
 .stage-desc {
