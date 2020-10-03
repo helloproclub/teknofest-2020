@@ -23,7 +23,7 @@ const UserValidation = (values) => {
     }
     if(!values.ktm_url || values.ktm_url === "") {
         errors.ktm_url = "Photo KTM is Required";
-    }
+    }    
     if(!values.cv_url || values.cv_url === "") {
         errors.cv_url = "CV/Resume is Required";
     }
