@@ -76,7 +76,7 @@ class FormResubmitComponent extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.props.handleSubmit} >
+                <form  >
                     <div className="component-regis mx-auto mt-5">
                         <div className="regis-card-1">
                             <p>Let's not be discouraged. fix it and don't give up until you win. Be brave and overcame your mistake...</p>
@@ -110,18 +110,10 @@ class FormResubmitComponent extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <FormGroup>
-                                    <button className="btn-block btn-regis mt-4" type="submit" disabled={this.props.submitting}>
+                                    <button className="btn-block btn-regis mt-4" type="submit" disabled>
                                         Resubmit Submissions
                                     </button>
-                                </FormGroup>
-                                {/* <FormGroup className="or-line">
-                                        <span></span>
-                                        <span>or</span>
-                                        <span></span>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <a href="#" className="btn btn-success btn-block">Check Status</a>
-                                    </FormGroup> */}
+                                </FormGroup>                                
                             </FormGroup>
                         </div>
                     </div>

@@ -88,7 +88,7 @@ export const postUserCreate = (data, history) => {
                     window.location = '/mission-report'
                 }
                 else {                    
-                    history.push('/login')
+                    history.push('/')
                 }
             })
             .catch(function (error) {                
@@ -145,7 +145,7 @@ export const postUserLogin = (data, history) => {
                     msg = "Something's wrong with your email or password"                    
                 }
                 dispatch(getSnackbars(msg, color))
-                history.push('/login')
+                history.push('/')
             })
     }
 }
@@ -225,7 +225,7 @@ export const userLogout = (history) => {
         dispatch({
             type: USER_LOGOUT,
         })        
-        window.location = '/login'
+        window.location = '/'
 
     }
 }

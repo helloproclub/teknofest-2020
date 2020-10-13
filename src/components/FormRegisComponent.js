@@ -63,7 +63,7 @@ class FormRegisComponent extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.props.handleSubmit} >
+                <form >
                     <div className="component-regis mx-auto mt-5">
                         <div className="regis-card-1">
                             <p className="card-desc">For the purpose of participating in Teknofest 2020, your details are required.</p>
@@ -103,19 +103,11 @@ class FormRegisComponent extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <FormGroup>
-                                    <button className="btn-block btn-regis mt-4" type="submit" disabled={this.props.submitting}>
+                                    <button className="btn-block btn-regis mt-4" type="submit" disabled>
                                         Register Account
                                     </button>
-                                </FormGroup>
-                                {/* <FormGroup className="or-line">
-                                        <span></span>
-                                        <span>or</span>
-                                        <span></span>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <a href="#" className="btn btn-success btn-block">Check Status</a>
-                                    </FormGroup> */}
-                                <p className="link-text mt-4">Already have an account?&nbsp; <Link to="/login">Login
+                                </FormGroup>                                
+                                <p className="link-text mt-4">Already have an account?&nbsp; <Link to="/">Login
                                     </Link>
                                     &nbsp;here
                                 </p>

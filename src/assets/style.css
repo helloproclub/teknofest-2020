@@ -1,4 +1,13 @@
-
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.not-found-container h1 {
+    font-size: 60px;
+    text-align: center;
+}
 /* General Section */
 
 .input-style input {
@@ -201,7 +210,7 @@
 
 /* Login Component */
 
-.login-user-container {
+.login-user-container, .not-found-container {
     padding: 2em 5em;
     color: white;
 }
