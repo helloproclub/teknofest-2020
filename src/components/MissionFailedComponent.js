@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 const mapStateToProps = state => {
     return {
@@ -22,9 +21,7 @@ const MissionFailedComponent = (props) => {
                                 {props.messageRevision}
                             </p>
                         </div>
-                    <p>But, No hope is lost yet, <br /> Be brave and overcame your mistake...</p>                    
-                    <p className="link-fix">&gt; <Link to="/resubmit">Fix your submission</Link></p>                    
-
+                    <p>But, No hope is lost yet, <br /> Be brave and overcame your mistake...</p>                                        
                 </div>
             </div>
         </div>

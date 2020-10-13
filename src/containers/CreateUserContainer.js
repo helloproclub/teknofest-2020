@@ -28,8 +28,7 @@ class CreateUserContainer extends Component {
             ...data,
             division: parseInt(data.division)
         }
-        console.log(data)
-        this.props.register(data, this.props.history)
+        console.log("tidak menerima lagi")        
     }
     componentDidMount() {
         this.props.removeSnackbar()    
