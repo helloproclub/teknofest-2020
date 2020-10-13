@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   BrowserRouter,
   Route,
+  Switch
 } from "react-router-dom";
 
 import LoginUserContainer from './containers/LoginUserContainer';
@@ -16,10 +17,13 @@ export default class App extends Component {
   render() {    
     return (
       <div className="background-cover">           
-        <BrowserRouter>          
-          <Route path="/" exact component={LoginUserContainer} />            
-          <Route path="/mission-report" exact component={MissionReportContainer} />                      
-          <Route component={NotFoundContainer} />                      
+        <BrowserRouter>  
+          <Switch>
+            <Route path="/" exact component={LoginUserContainer} />            
+            <Route path="/mission-report" exact component={MissionReportContainer} />                      
+            <Route component={NotFoundContainer} />                      
+            
+          </Switch>     
         </BrowserRouter>
       </div>
     )
